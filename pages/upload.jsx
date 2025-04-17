@@ -54,27 +54,28 @@ export default function UploadPage() {
   };
 
   return (
-    <div className="min-h-screen px-6 py-12 bg-white text-gray-800 flex flex-col items-center">
-      <h1 className="text-2xl font-semibold text-center mb-4">셀카 한 장으로<br />피부과급 피부 진단을 받으세요</h1>
+    <div className="w-full max-w-md bg-white border border-gray-200 rounded-xl p-6 shadow-md">
+  <h2 className="text-lg font-medium text-gray-900 mb-2 text-center">
+    셀카 한 장으로<br /> 피부과에서 받는 피부진단을 받아보세요
+  </h2>
+  <p className="text-sm text-gray-600 text-center mb-4 leading-relaxed">
+    정밀한 피부 분석을 위해 <br />
+    <span className="block mt-2">📸 이마부터 턱까지 잘 나온 밝은 정면 셀카를 업로드해주세요.</span>
+    <span className="block">🚫 모자, 앞머리, 그림자, 흐릿한 사진은 피해 주세요.</span>
+  </p>
 
-      <div className="text-sm text-center text-gray-600 mb-6 leading-relaxed">
-        보다 정확한 진단을 위해<br />
-        <span className="block mt-2">📸 이마부터 턱까지 얼굴 전체가 나온 밝은 정면 셀카</span>
-        <span className="block">⚠️ 모자, 앞머리, 그림자는 피해 주세요</span>
-      </div>
+  <label className="block w-full text-center bg-gray-50 border border-dashed border-gray-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-gray-100 transition">
+    📁 사진 선택하기
+    <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
+  </label>
 
-      <label className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-pointer hover:bg-gray-200 transition">
-        📁 사진 선택하기
-        <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-      </label>
-
-      {previewUrl && (
-        <img
-          src={previewUrl}
-          alt="Preview"
-          className="mt-6 max-w-xs w-full rounded-lg shadow-md"
-        />
-      )}
+  {previewUrl && (
+    <img
+      src={previewUrl}
+      alt="Preview"
+      className="mt-4 w-full rounded-lg shadow-inner"
+    />
+  )}
 
       <button
         onClick={handleUpload}
