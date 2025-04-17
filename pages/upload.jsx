@@ -23,10 +23,10 @@ export default function UploadPage() {
     formData.append('image', image);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/analyze`, {
+      const response = await fetch('https://skinreport-backend.onrender.com/analyze', {
         method: 'POST',
         body: formData,
-      });
+      });      
 
       if (!response.ok) {
         const errorText = await response.text();
